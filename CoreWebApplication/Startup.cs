@@ -33,20 +33,21 @@ namespace CoreWebApplication
                 app.UseDeveloperExceptionPage();
             }
 
-            
-            DefaultFilesOptions defaultFilesOptions = new DefaultFilesOptions();
-            defaultFilesOptions.DefaultFileNames.Clear();
-            defaultFilesOptions.DefaultFileNames.Add("foo.html");
 
-            app.UseDefaultFiles(defaultFilesOptions);
+            //DefaultFilesOptions defaultFilesOptions = new DefaultFilesOptions();
+            //defaultFilesOptions.DefaultFileNames.Clear();
+            //defaultFilesOptions.DefaultFileNames.Add("foo.html");
+
+            //app.UseDefaultFiles(defaultFilesOptions);
             app.UseRouting();
             app.UseStaticFiles();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context =>
                 {
-                    // await context.Response.WriteAsync(System.Diagnostics.Process.GetCurrentProcess().ProcessName);
-                    await context.Response.WriteAsync("Hello World");
+                    await context.Response
+                    .WriteAsync(System.Diagnostics.Process.GetCurrentProcess().ProcessName);
+                    //await context.Response.WriteAsync("Hello World");
                 });
             });
         }
