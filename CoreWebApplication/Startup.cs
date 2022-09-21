@@ -40,40 +40,21 @@ namespace CoreWebApplication
             //defaultFilesOptions.DefaultFileNames.Add("foo.html");
 
             //app.UseDefaultFiles(defaultFilesOptions);
-            app.Use(async (content, next) =>
-            {
-                logger.LogInformation("MW1 : Incoming Request");
-                await next();
-                logger.LogInformation("MW1 : Outgoing Request");
 
-            });
+            FileServerOptions defaultFilesOptions = new FileServerOptions();
+            defaultFilesOptions.DefaultFilesOptions.DefaultFileNames.Clear();
+            defaultFilesOptions.DefaultFilesOptions.DefaultFileNames.Add("foo.html");
 
-            app.Use(async (content, next) =>
-            {
-                logger.LogInformation("MW2 : Incoming Request");
-                await next();
-                logger.LogInformation("MW2 : Outgoing Request");
+            app.UseFileServer(defaultFilesOptions);
 
-            });
-
+            app.UseRouting();
+            app.UseStaticFiles();
             app.Run(async (content) =>
             {
-                await content.Response.WriteAsync("MW3 : Request handled and response produced");
-                logger.LogInformation("MW3 : Request handled and response produced");
+                await content.Response.WriteAsync("Hello World");
 
             });
-            app.UseRouting();
-            //app.UseStaticFiles();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/", async context =>
-                {
-                    //await context.Response
-                    //.WriteAsync(System.Diagnostics.Process.GetCurrentProcess().ProcessName);
-                    await context.Response.WriteAsync("Hello World");
-                    //await context.Response.WriteAsync(_configuration["MyKey"]);
-                });
-            });
+           
         }
     }
 }
