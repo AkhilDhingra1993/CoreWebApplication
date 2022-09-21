@@ -31,7 +31,11 @@ namespace CoreWebApplication
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                DeveloperExceptionPageOptions developerExceptionPageOptions = new DeveloperExceptionPageOptions()
+                {
+                    SourceCodeLineCount = 10//number of exceptions we need to display in the web page
+                };
+                app.UseDeveloperExceptionPage(developerExceptionPageOptions);
             }
 
 
@@ -41,16 +45,19 @@ namespace CoreWebApplication
 
             //app.UseDefaultFiles(defaultFilesOptions);
 
-            FileServerOptions defaultFilesOptions = new FileServerOptions();
-            defaultFilesOptions.DefaultFilesOptions.DefaultFileNames.Clear();
-            defaultFilesOptions.DefaultFilesOptions.DefaultFileNames.Add("foo.html");
+            //FileServerOptions defaultFilesOptions = new FileServerOptions();
+            //defaultFilesOptions.DefaultFilesOptions.DefaultFileNames.Clear();
+            //defaultFilesOptions.DefaultFilesOptions.DefaultFileNames.Add("foo.html");
 
-            app.UseFileServer(defaultFilesOptions);
+            //app.UseFileServer(defaultFilesOptions);
 
             app.UseRouting();
-            app.UseStaticFiles();
+            //app.UseStaticFiles();
+            app.UseFileServer();
+
             app.Run(async (content) =>
             {
+                throw new Exception("Some error in processing the request");
                 await content.Response.WriteAsync("Hello World");
 
             });
