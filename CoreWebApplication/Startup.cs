@@ -29,13 +29,16 @@ namespace CoreWebApplication
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
         {
+            //if (env.isEnvironment("Develoment"))
             if (env.IsDevelopment())
             {
-                DeveloperExceptionPageOptions developerExceptionPageOptions = new DeveloperExceptionPageOptions()
-                {
-                    SourceCodeLineCount = 10//number of exceptions we need to display in the web page
-                };
-                app.UseDeveloperExceptionPage(developerExceptionPageOptions);
+                //DeveloperExceptionPageOptions developerExceptionPageOptions = new DeveloperExceptionPageOptions()
+                //{
+                //    SourceCodeLineCount = 10//number of exceptions we need to display in the web page
+                //};
+                //app.UseDeveloperExceptionPage(developerExceptionPageOptions);
+                app.UseDeveloperExceptionPage();
+
             }
 
 
@@ -51,15 +54,15 @@ namespace CoreWebApplication
 
             //app.UseFileServer(defaultFilesOptions);
 
-            app.UseRouting();
-            //app.UseStaticFiles();
-            app.UseFileServer();
+            //app.UseRouting();
+            app.UseStaticFiles();
+            //app.UseFileServer();
 
             app.Run(async (content) =>
             {
-                throw new Exception("Some error in processing the request");
-                await content.Response.WriteAsync("Hello World");
-
+                //throw new Exception("Some error in processing the request");
+                //await content.Response.WriteAsync("Hello World");
+                await content.Response.WriteAsync("Hosting Environment : "+ env.EnvironmentName);
             });
            
         }
