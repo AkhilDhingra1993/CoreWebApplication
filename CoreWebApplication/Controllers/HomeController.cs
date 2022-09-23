@@ -19,7 +19,9 @@ namespace CoreWebApplication.Controllers
         public ViewResult Details()
         {
             Order order = _orderRepository.GetOrder(1);
-            return View(order);
+            //return View(order);
+            return View("Details");
+            //return View("..//Test/Details");
         }
     }
 }
