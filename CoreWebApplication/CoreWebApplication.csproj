@@ -6,13 +6,9 @@
 
   <ItemGroup>
     <Compile Remove="wwwroot\css\NewFolder\**" />
-    <Compile Remove="wwwroot\js\**" />
     <Content Remove="wwwroot\css\NewFolder\**" />
-    <Content Remove="wwwroot\js\**" />
     <EmbeddedResource Remove="wwwroot\css\NewFolder\**" />
-    <EmbeddedResource Remove="wwwroot\js\**" />
     <None Remove="wwwroot\css\NewFolder\**" />
-    <None Remove="wwwroot\js\**" />
   </ItemGroup>
 
   <ItemGroup>
