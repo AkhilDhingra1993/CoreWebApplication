@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace CoreWebApplication.Models
 {
     public class Order
     {
+        [Key]
         public int ID { get; set; }
         public int CUSTOMER_USER_ID { get; set; }
         public int AMOUNT_PAID { get; set; }

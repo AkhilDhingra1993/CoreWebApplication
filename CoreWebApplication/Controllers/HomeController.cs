@@ -12,9 +12,11 @@ namespace CoreWebApplication.Controllers
         {
             _orderRepository = orderRepositiory;
         }
-        public string Index()
+        public ViewResult Index()
         {
-            return _orderRepository.GetOrder(1).PAYMENT_METHOD;
+            //return _orderRepository.GetOrder(1).PAYMENT_METHOD;
+            var model =  _orderRepository.GetAllOrders();
+            return View(model);
         }
 
         public ViewResult Details()

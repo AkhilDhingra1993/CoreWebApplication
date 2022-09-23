@@ -27,6 +27,12 @@ namespace CoreWebApplication.Models
                 }
             };
         }
+
+        public IEnumerable<Order> GetAllOrders()
+        {
+            return _ordersList;
+        }
+
         public Order GetOrder(int ID)
         {
             return _ordersList.FirstOrDefault(o => o.ID == ID);
