@@ -3,24 +3,21 @@
     <title></title>
 </head>
 <body>
-    <h3>@ViewData["PageTitle"]</h3>
-    @{
-        var order = ViewData["Order"] as CoreWebApplication.Models.Order;
-    }
+    <h3>@ViewBag.PageTitle</h3>
     <div>
-        ID = @order.ID
+        ID = @ViewBag.Order.ID
     </div>
     <div>
-        CUSTOMER_USER_ID = @order.CUSTOMER_USER_ID
+        CUSTOMER_USER_ID = @ViewBag.Order.CUSTOMER_USER_ID
     </div>
     <div>
-        AMOUNT_PAID = @order.AMOUNT_PAID
+        AMOUNT_PAID = @ViewBag.Order.AMOUNT_PAID
     </div>
     <div>
-        DATE_CREATED = @order.DATE_CREATED
+        DATE_CREATED = @ViewBag.Order.DATE_CREATED
     </div>
     <div>
-        PAYMENT_METHOD = @order.PAYMENT_METHOD
+        PAYMENT_METHOD = @ViewBag.Order.PAYMENT_METHOD
     </div>
 </body>
 </html>

@@ -20,7 +20,8 @@ namespace CoreWebApplication.Controllers
         {
             Order order = _orderRepository.GetOrder(1);
             ViewData["Order"] = order;
-            ViewData["PageTitle"] = "Order Details";
+            //ViewData["PageTitle"] = "Order Details";
+            ViewBag.PageTitle = "Order Details";
             //return View(order);
             return View("Details");
             //return View("..//Test/Details");
