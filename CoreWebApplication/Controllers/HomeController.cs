@@ -16,10 +16,10 @@ namespace CoreWebApplication.Controllers
             return _orderRepository.GetOrder(1).PAYMENT_METHOD;
         }
 
-        public ObjectResult Details()
+        public ViewResult Details()
         {
             Order order = _orderRepository.GetOrder(1);
-            return new ObjectResult(order);
+            return View(order);
         }
     }
 }
