@@ -7,5 +7,6 @@ namespace CoreWebApplication.ViewModels
     {
         public Order Order { get; set; }
         public string PageTitle { get; set; }
+        public User User { get; set; }
     }
 }

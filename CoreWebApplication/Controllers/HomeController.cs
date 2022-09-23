@@ -8,15 +8,20 @@ namespace CoreWebApplication.Controllers
     {
 
         private readonly IOrderRepositiory _orderRepository;
-        public HomeController(IOrderRepositiory orderRepositiory)
+        private readonly IUserRepostory _userRepository;
+
+        public HomeController(IOrderRepositiory orderRepositiory, IUserRepostory userRepository)
         {
             _orderRepository = orderRepositiory;
+            _userRepository = userRepository;
         }
         public ViewResult Index()
         {
             //return _orderRepository.GetOrder(1).PAYMENT_METHOD;
             var model =  _orderRepository.GetAllOrders();
-            return View(model);
+            var user = _userRepository.GetAllUser();
+
+            return View(user);
         }
 
         public ViewResult Details()
@@ -24,7 +29,8 @@ namespace CoreWebApplication.Controllers
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {
                 Order = _orderRepository.GetOrder(1),
-                PageTitle = "Order Details"
+                User = _userRepository.GetUser(1),
+                PageTitle = "User Details",
             };
             //Order order = _orderRepository.GetOrder(1);
             //ViewData["Order"] = order;
