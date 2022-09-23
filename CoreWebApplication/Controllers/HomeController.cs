@@ -19,6 +19,8 @@ namespace CoreWebApplication.Controllers
         public ViewResult Details()
         {
             Order order = _orderRepository.GetOrder(1);
+            ViewData["Order"] = order;
+            ViewData["PageTitle"] = "Order Details";
             //return View(order);
             return View("Details");
             //return View("..//Test/Details");

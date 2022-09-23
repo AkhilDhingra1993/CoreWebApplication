@@ -1,1 +1,26 @@
-﻿<h1>asfd</h1>
+﻿<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h3>@ViewData["PageTitle"]</h3>
+    @{
+        var order = ViewData["Order"] as CoreWebApplication.Models.Order;
+    }
+    <div>
+        ID = @order.ID
+    </div>
+    <div>
+        CUSTOMER_USER_ID = @order.CUSTOMER_USER_ID
+    </div>
+    <div>
+        AMOUNT_PAID = @order.AMOUNT_PAID
+    </div>
+    <div>
+        DATE_CREATED = @order.DATE_CREATED
+    </div>
+    <div>
+        PAYMENT_METHOD = @order.PAYMENT_METHOD
+    </div>
+</body>
+</html>
