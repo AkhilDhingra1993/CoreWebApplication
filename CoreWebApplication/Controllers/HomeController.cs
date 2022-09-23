@@ -1,4 +1,5 @@
 ﻿using CoreWebApplication.Models;
+using CoreWebApplication.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreWebApplication.Controllers
@@ -18,12 +19,18 @@ namespace CoreWebApplication.Controllers
 
         public ViewResult Details()
         {
-            Order order = _orderRepository.GetOrder(1);
+            HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
+            {
+                Order = _orderRepository.GetOrder(1),
+                PageTitle = "Order Details"
+            };
+            //Order order = _orderRepository.GetOrder(1);
             //ViewData["Order"] = order;
             //ViewData["PageTitle"] = "Order Details";
-            ViewBag.PageTitle = "Order Details";
+            //ViewBag.PageTitle = "Order Details";
             //return View(order);
-            return View(order);
+
+            return View(homeDetailsViewModel);
             //return View("..//Test/Details");
         }
     }

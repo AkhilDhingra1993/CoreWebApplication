@@ -1,24 +1,24 @@
-﻿@model CoreWebApplication.Models.Order
+﻿@model CoreWebApplication.ViewModels.HomeDetailsViewModel
 <html>
 <head>
     <title></title>
 </head>
 <body>
-    <h3>@ViewBag.PageTitle</h3>
+    <h3>@Model.PageTitle</h3>
     <div>
-        ID = @Model.ID
+        ID = @Model.Order.ID
     </div>
     <div>
-        CUSTOMER_USER_ID = @Model.CUSTOMER_USER_ID
+        CUSTOMER_USER_ID = @Model.Order.CUSTOMER_USER_ID
     </div>
     <div>
-        AMOUNT_PAID = @Model.AMOUNT_PAID
+        AMOUNT_PAID = @Model.Order.AMOUNT_PAID
     </div>
     <div>
-        DATE_CREATED = @Model.DATE_CREATED
+        DATE_CREATED = @Model.Order.DATE_CREATED
     </div>
     <div>
-        PAYMENT_METHOD = @Model.PAYMENT_METHOD
+        PAYMENT_METHOD = @Model.Order.PAYMENT_METHOD
     </div>
 </body>
 </html>
