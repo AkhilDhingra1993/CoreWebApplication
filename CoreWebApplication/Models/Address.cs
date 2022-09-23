@@ -12,7 +12,6 @@ namespace CoreWebApplication.Models
         public string COUNTRY { get; set; }
         public string ADDRESS_LINE { get; set; }
         public long ZIP_CODE { get; set; }
-        [ForeignKey("User")]
         public long USER_ID { get; set; }
 
 

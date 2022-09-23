@@ -4,6 +4,7 @@ namespace CoreWebApplication.Models
 {
     public class User
     {
+        [Key]
         public long ID { get; set; }
         public string EMAIL { get; set; }
         public string FIRST_NAME { get; set; }
