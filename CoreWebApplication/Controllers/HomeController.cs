@@ -19,8 +19,7 @@ namespace CoreWebApplication.Controllers
         {
             //return _orderRepository.GetOrder(1).PAYMENT_METHOD;
             var model =  _orderRepository.GetAllOrders();
-            var user = _userRepository.GetAllUser();
-
+            var user = _userRepository.GetAllUsers();
             return View(user);
         }
 

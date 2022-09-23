@@ -6,6 +6,6 @@ namespace CoreWebApplication.Models
     public interface IUserRepostory
     {
         User GetUser(int ID);
-        IEnumerable<User> GetAllUser();
+        IEnumerable<User> GetAllUsers();
     }
 }

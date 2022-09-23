@@ -26,7 +26,7 @@ namespace CoreWebApplication.Models
             };
         }
 
-        public IEnumerable<User> GetAllUser()
+        public IEnumerable<User> GetAllUsers()
         {
             return _userList;
         }
