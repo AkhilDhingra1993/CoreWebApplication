@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreWebApplication.Controllers
 {
+    [Route("[controller]/[action]")]
     public class HomeController : Controller
     {
 
@@ -15,6 +16,8 @@ namespace CoreWebApplication.Controllers
             _orderRepository = orderRepositiory;
             _userRepository = userRepository;
         }
+        [Route("~/Home")]
+        [Route("~/")]
         public ViewResult Index()
         {
             //return _orderRepository.GetOrder(1).PAYMENT_METHOD;
@@ -23,12 +26,13 @@ namespace CoreWebApplication.Controllers
             return View(user);
         }
 
-        public ViewResult Details(int id)
+        [Route("{id?}")]
+        public ViewResult Details(int? id)
         {
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {
-                Order = _orderRepository.GetOrder(id),
-                User = _userRepository.GetUser(id),
+                Order = _orderRepository.GetOrder(id??1),
+                User = _userRepository.GetUser(id??1),
                 PageTitle = "User Details",
             };
             //Order order = _orderRepository.GetOrder(1);
