@@ -7,5 +7,6 @@ namespace CoreWebApplication.Models
     {
         User GetUser(int ID);
         IEnumerable<User> GetAllUsers();
+        User Add(User user);
     }
 }

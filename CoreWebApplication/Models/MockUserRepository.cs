@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace CoreWebApplication.Models
 {
@@ -35,6 +36,14 @@ namespace CoreWebApplication.Models
                     IS_ACTIVE =true,
                 }
             };
+        }
+
+        public User Add(User user)
+        {
+            user.ID = _userList.Max(u => u.ID) + 1;
+            _userList.Add(user);
+           
+            return user;
         }
 
         public IEnumerable<User> GetAllUsers()

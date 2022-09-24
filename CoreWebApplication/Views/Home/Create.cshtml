@@ -2,26 +2,28 @@
 @{
     ViewBag.Title = "Create User";
 }
-<form method="post">
+<form asp-controller="Home" asp-action="Create" method="post">
     <div class="row container">
         <div class="col-sm-10">
             <div>
                 <label asp-for="FIRST_NAME">First Name</label>
-                <input asp-for="FIRST_NAME" />
+                <input asp-for="FIRST_NAME" id="FIRST_NAME" name="FIRST_NAME" />
             </div>
             <div>
                 <label asp-for="LAST_NAME">Last Name</label>
-                <input asp-for="LAST_NAME" />
+                <input asp-for="LAST_NAME" id="LAST_NAME" name="LAST_NAME" />
             </div>
             <div>
                 <label asp-for="EMAIL">Email</label>
-                <input asp-for="EMAIL" />
+                <input asp-for="EMAIL" id="EMAIL" name="EMAIL" />
             </div>
             <div>
                 <label asp-for="PASSWORD">Password</label>
-                <input asp-for="PASSWORD" />
+                <input asp-for="PASSWORD" id="PASSWORD" name="PASSWORD" />
             </div>
-            <button type="submit">Create</button>
+            <div>
+                <button type="submit" data-val="true">Create</button>
+            </div>
         </div>
     </div>
 </form>

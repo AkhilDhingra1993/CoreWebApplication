@@ -21,7 +21,7 @@ namespace CoreWebApplication.Controllers
         public ViewResult Index()
         {
             //return _orderRepository.GetOrder(1).PAYMENT_METHOD;
-            var model =  _orderRepository.GetAllOrders();
+            var model = _orderRepository.GetAllOrders();
             var user = _userRepository.GetAllUsers();
             return View(user);
         }
@@ -31,8 +31,8 @@ namespace CoreWebApplication.Controllers
         {
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {
-                Order = _orderRepository.GetOrder(id??1),
-                User = _userRepository.GetUser(id??1),
+                Order = _orderRepository.GetOrder(id ?? 1),
+                User = _userRepository.GetUser(id ?? 1),
                 PageTitle = "User Details",
             };
             //Order order = _orderRepository.GetOrder(1);
@@ -44,10 +44,16 @@ namespace CoreWebApplication.Controllers
             return View(homeDetailsViewModel);
             //return View("..//Test/Details");
         }
-
+        [HttpGet]
         public ViewResult Create()
         {
             return View();
+        }
+        [HttpPost]
+        public RedirectToActionResult Create(User user)
+        {
+            User newUser = _userRepository.Add(user);
+            return RedirectToAction("Details", new { id = newUser.ID });
         }
     }
 }
