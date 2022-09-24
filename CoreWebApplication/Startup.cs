@@ -27,7 +27,7 @@ namespace CoreWebApplication
 
             services.AddMvc().AddXmlDataContractSerializerFormatters();
             services.AddSingleton<IOrderRepositiory, MockOrderRepository>();
-            services.AddSingleton<IUserRepostory, MockUserRepository>();
+            services.AddSingleton<IUserRepostory, SqlUserRepository>();
             //services.AddScoped<IUserRepostory, MockUserRepository>();
             //services.AddTransient<IUserRepostory, MockUserRepository>();
         }

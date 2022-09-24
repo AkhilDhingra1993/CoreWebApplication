@@ -1,14 +1,11 @@
 ﻿using System.Collections.Generic;
-using System;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace CoreWebApplication.Models
 {
     public class MockUserRepository : IUserRepostory
     {
         private readonly List<User> _userList;
-
         public MockUserRepository()
         {
             _userList = new List<User>()
@@ -37,20 +34,38 @@ namespace CoreWebApplication.Models
                 }
             };
         }
-
         public User Add(User user)
         {
             user.ID = _userList.Max(u => u.ID) + 1;
             _userList.Add(user);
-           
+
             return user;
         }
-
+        public User Delete(int ID)
+        {
+            User user = _userList.FirstOrDefault(u => u.ID == ID);
+            if (user != null)
+            {
+                _userList.Remove(user);
+            }
+            return user;
+        }
         public IEnumerable<User> GetAllUsers()
         {
             return _userList;
         }
-
         public User GetUser(int ID) => _userList.FirstOrDefault(u => u.ID == ID);
+        public User Update(User userChanges)
+        {
+            User updateUser = _userList.FirstOrDefault(u => u.ID == userChanges.ID);
+            if (updateUser != null)
+            {
+                updateUser.FIRST_NAME = userChanges.FIRST_NAME;
+                updateUser.LAST_NAME = userChanges.LAST_NAME;
+                updateUser.EMAIL = userChanges.EMAIL;
+                updateUser.PASSWORD = userChanges.PASSWORD;
+            }
+            return updateUser;
+        }
     }
 }
