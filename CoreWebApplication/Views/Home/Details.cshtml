@@ -4,22 +4,24 @@
     ViewBag.Title = "Details";
 }
 <h3>@Model.PageTitle</h3>
-<div>
-    ID = @Model.User.ID
-</div>
-<div>
-    EMAIL = @Model.User.EMAIL
-</div>
-<div>
-    FIRST_NAME = @Model.User.FIRST_NAME
-</div>
-<div>
-    LAST_NAME = @Model.User.LAST_NAME
-</div>
-<div>
-    PASSWORD = @Model.User.PASSWORD
+<div class="row container">
+    <div class="col-sm-4">
+        <div class="card-header">
+            <h3>@Model.User.FIRST_NAME @Model.User.LAST_NAME</h3>
+        </div>
+        <img class="card-img-top" src="/img/banner2.jpg" />
+        <div class="card-footer text-left">
+            <div>ID = @Model.User.ID</div>
+            <div>EMAIL = @Model.User.EMAIL</div>
+            <div>FIRST_NAME = @Model.User.FIRST_NAME</div>
+            <div>LAST_NAME = @Model.User.LAST_NAME</div>
+        </div>
+    </div>
 </div>
 @section Scripts
-{
+    {
     <script src="~/js/customscript.js"></script>
 }
+
+
+

@@ -1,27 +1,29 @@
 ﻿@model IEnumerable<User>
 
 @{
-    //Layout = "null";
+    Layout = Layout;
     ViewBag.Title = "Index";
 }
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Email</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in Model)
-        {
-            <tr>
-                <td>@user.ID</td>
-                <td>@user.EMAIL</td>
-                <td>@user.FIRST_NAME</td>
-                <td>@user.LAST_NAME</td>
-            </tr>
-        }
-    </tbody>
-</table>
+
+<div class="card-deck container">
+    @foreach (var user in Model)
+    {
+        <div class="row container">
+            <div class="col-sm-4">
+                <div class="card-header">
+                    <h3>@user.FIRST_NAME @user.LAST_NAME</h3>
+                </div>
+                <img class="card-img-top" src="/img/banner2.jpg" />
+                <div class="card-footer text-left">
+                    <div>ID : @user.ID</div>
+                    <div>Email : @user.EMAIL</div>
+                    <div>First Name : @user.FIRST_NAME</div>
+                    <div>Last Name : @user.LAST_NAME</div>
+                    <a href="#" class="btn btn-success">View</a>
+                    <a href="#" class="btn btn-primary">Edit</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
