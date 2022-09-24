@@ -50,10 +50,13 @@ namespace CoreWebApplication.Controllers
             return View();
         }
         [HttpPost]
-        public RedirectToActionResult Create(User user)
+        public IActionResult Create(User user)
         {
-            User newUser = _userRepository.Add(user);
-            return RedirectToAction("Details", new { id = newUser.ID });
+            if (ModelState.IsValid){
+                User newUser = _userRepository.Add(user);
+                return RedirectToAction("Details", new { id = newUser.ID });
+            }
+            return View();
         }
     }
 }
