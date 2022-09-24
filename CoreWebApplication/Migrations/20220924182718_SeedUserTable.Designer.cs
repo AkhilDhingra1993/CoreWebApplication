@@ -3,6 +3,7 @@ using CoreWebApplication.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoreWebApplication.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220924182718_SeedUserTable")]
+    partial class SeedUserTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,23 +63,13 @@ namespace CoreWebApplication.Migrations
                     b.HasData(
                         new
                         {
-                            ID = 4L,
+                            ID = 2L,
                             EMAIL = "jyoti@gmail.com",
                             FIRST_NAME = "Jyoti",
                             IS_ACTIVE = false,
                             IS_DELETED = false,
                             LAST_NAME = "Dhingra",
                             PASSWORD = "321"
-                        },
-                        new
-                        {
-                            ID = 5L,
-                            EMAIL = "mukesh@gmail.com",
-                            FIRST_NAME = "Mukesh",
-                            IS_ACTIVE = false,
-                            IS_DELETED = false,
-                            LAST_NAME = "Dhingra",
-                            PASSWORD = "546"
                         });
                 });
 #pragma warning restore 612, 618
