@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 
 namespace CoreWebApplication.Models
 {
-    public class User
+    public class UserCreateViewModel
     {
         [Key]
         public long ID { get; set; }
@@ -19,5 +21,6 @@ namespace CoreWebApplication.Models
         public string PASSWORD { get; set; }
         public bool IS_DELETED { get; set; }
         public bool IS_ACTIVE { get; set; }
+        public IFormFile Photopath { get; set; }
     }
 }
