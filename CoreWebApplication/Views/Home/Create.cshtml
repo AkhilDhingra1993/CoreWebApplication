@@ -1,4 +1,5 @@
 ﻿@model User
+@inject IUserRepostory _userRepository;
 @{
     ViewBag.Title = "Create User";
 }
@@ -29,6 +30,11 @@
             <div>
                 <button type="submit">Create</button>
             </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            Total Users Count = @_userRepository.GetAllUsers().Count()
         </div>
     </div>
 </form>

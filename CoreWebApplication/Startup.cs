@@ -24,6 +24,8 @@ namespace CoreWebApplication
             services.AddMvc().AddXmlDataContractSerializerFormatters();
             services.AddSingleton<IOrderRepositiory,MockOrderRepository>();
             services.AddSingleton<IUserRepostory,MockUserRepository>();
+            //services.AddScoped<IUserRepostory, MockUserRepository>();
+            //services.AddTransient<IUserRepostory, MockUserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

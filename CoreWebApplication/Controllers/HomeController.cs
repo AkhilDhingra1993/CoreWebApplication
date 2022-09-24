@@ -54,7 +54,7 @@ namespace CoreWebApplication.Controllers
         {
             if (ModelState.IsValid){
                 User newUser = _userRepository.Add(user);
-                return RedirectToAction("Details", new { id = newUser.ID });
+                //return RedirectToAction("Details", new { id = newUser.ID });
             }
             return View();
         }
