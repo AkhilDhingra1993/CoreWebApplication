@@ -27,7 +27,7 @@ namespace CoreWebApplication.Controllers
         }
 
         [Route("{id?}")]
-        public ViewResult Details(int? id)
+        public ViewResult Details(long? id)
         {
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {

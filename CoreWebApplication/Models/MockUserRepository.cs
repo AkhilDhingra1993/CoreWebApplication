@@ -41,7 +41,7 @@ namespace CoreWebApplication.Models
 
             return user;
         }
-        public User Delete(int ID)
+        public User Delete(long ID)
         {
             User user = _userList.FirstOrDefault(u => u.ID == ID);
             if (user != null)
@@ -54,7 +54,7 @@ namespace CoreWebApplication.Models
         {
             return _userList;
         }
-        public User GetUser(int ID) => _userList.FirstOrDefault(u => u.ID == ID);
+        public User GetUser(long ID) => _userList.FirstOrDefault(u => u.ID == ID);
         public User Update(User userChanges)
         {
             User updateUser = _userList.FirstOrDefault(u => u.ID == userChanges.ID);

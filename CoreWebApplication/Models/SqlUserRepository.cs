@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Security.Cryptography;
 using System.Threading;
 
 namespace CoreWebApplication.Models
@@ -18,7 +16,7 @@ namespace CoreWebApplication.Models
             context.SaveChanges();
             return user;
         }
-        public User Delete(int ID)
+        public User Delete(long ID)
         {
             User user = context.User.Find(ID);
             if (user != null)
@@ -32,7 +30,7 @@ namespace CoreWebApplication.Models
         {
             return context.User;
         }
-        public User GetUser(int ID)
+        public User GetUser(long ID)
         {
             return context.User.Find(ID);
         }

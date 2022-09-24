@@ -5,10 +5,10 @@ namespace CoreWebApplication.Models
 {
     public interface IUserRepostory
     {
-        User GetUser(int ID);
+        User GetUser(long ID);
         IEnumerable<User> GetAllUsers();
         User Add(User user);
         User Update(User user);
-        User Delete(int ID);
+        User Delete(long ID);
     }
 }

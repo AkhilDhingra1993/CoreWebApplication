@@ -33,7 +33,7 @@ namespace CoreWebApplication.Models
             return _ordersList;
         }
 
-        public Order GetOrder(int ID)
+        public Order GetOrder(long ID)
         {
             return _ordersList.FirstOrDefault(o => o.ID == ID);
         }

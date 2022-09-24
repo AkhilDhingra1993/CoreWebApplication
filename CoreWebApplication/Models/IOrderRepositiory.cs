@@ -5,7 +5,7 @@ namespace CoreWebApplication.Models
 {
     public interface IOrderRepositiory
     {
-        Order GetOrder(int ID);
+        Order GetOrder(long ID);
         IEnumerable<Order> GetAllOrders();
     }
 }
