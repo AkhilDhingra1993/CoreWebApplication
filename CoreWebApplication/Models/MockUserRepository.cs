@@ -22,6 +22,17 @@ namespace CoreWebApplication.Models
                     PASSWORD ="cricket@1",
                     IS_DELETED = false,
                     IS_ACTIVE =true,
+                },
+                new User()
+                {
+                    ID =2,
+                    EMAIL ="aayushithani@gmail.com",
+                    FIRST_NAME = "Aayushi",
+                    MIDDLE_NAME ="",
+                    LAST_NAME ="Thani",
+                    PASSWORD ="secret@@19",
+                    IS_DELETED = false,
+                    IS_ACTIVE =true,
                 }
             };
         }

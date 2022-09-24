@@ -23,12 +23,12 @@ namespace CoreWebApplication.Controllers
             return View(user);
         }
 
-        public ViewResult Details()
+        public ViewResult Details(int id)
         {
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {
-                Order = _orderRepository.GetOrder(1),
-                User = _userRepository.GetUser(1),
+                Order = _orderRepository.GetOrder(id),
+                User = _userRepository.GetUser(id),
                 PageTitle = "User Details",
             };
             //Order order = _orderRepository.GetOrder(1);
