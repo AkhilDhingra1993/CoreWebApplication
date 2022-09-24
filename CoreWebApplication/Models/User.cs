@@ -19,5 +19,6 @@ namespace CoreWebApplication.Models
         public string PASSWORD { get; set; }
         public bool IS_DELETED { get; set; }
         public bool IS_ACTIVE { get; set; }
+        public string Photopath { get; set; }
     }
 }
