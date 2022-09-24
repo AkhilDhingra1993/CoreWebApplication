@@ -44,5 +44,10 @@ namespace CoreWebApplication.Controllers
             return View(homeDetailsViewModel);
             //return View("..//Test/Details");
         }
+
+        public ViewResult Create()
+        {
+            return View();
+        }
     }
 }
