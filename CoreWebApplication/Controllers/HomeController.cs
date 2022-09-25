@@ -7,7 +7,6 @@ namespace CoreWebApplication.Controllers
     [Route("[controller]/[action]")]
     public class HomeController : Controller
     {
-
         private readonly IOrderRepositiory _orderRepository;
         private readonly IUserRepostory _userRepository;
 

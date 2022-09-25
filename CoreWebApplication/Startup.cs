@@ -41,6 +41,7 @@ namespace CoreWebApplication
             }
             else
             {
+                app.UseExceptionHandler("/Error");
                 app.UseStatusCodePagesWithRedirects("/Error/{0}");
             }
             app.UseStaticFiles();
