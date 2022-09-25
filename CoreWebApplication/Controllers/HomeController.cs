@@ -52,11 +52,27 @@ namespace CoreWebApplication.Controllers
         [HttpPost]
         public IActionResult Create(User user)
         {
-            if (ModelState.IsValid){
+            if (ModelState.IsValid)
+            {
                 User newUser = _userRepository.Add(user);
                 //return RedirectToAction("Details", new { id = newUser.ID });
             }
             return View();
+        }
+        [HttpPost]
+        public ViewResult Edit(long Id)
+        {
+            User user = _userRepository.GetUser(Id);
+            UserEditViewModel userEditViewModel = new UserEditViewModel()
+            {
+                ID = user.ID,
+                FIRST_NAME = user.FIRST_NAME,
+                LAST_NAME = user.LAST_NAME,
+                PASSWORD = user.PASSWORD,
+                EMAIL = user.EMAIL
+
+            };
+            return View(userEditViewModel);
         }
     }
 }

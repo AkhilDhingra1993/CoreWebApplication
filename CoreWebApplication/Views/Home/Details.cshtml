@@ -17,6 +17,11 @@
             <div>LAST_NAME = @Model.User.LAST_NAME</div>
         </div>
     </div>
+    <div class="card-footer text-center">
+        <a href="/home/details/@Model.User.ID" class="btn btn-success">View</a>
+        <a asp-controller="Home" asp-action="edit" asp-route="@Model.User.ID" class="btn btn-primary m-1">Edit</a>
+        <a class="btn btn-danger">Delete</a>
+    </div>
 </div>
 @section Scripts
     {

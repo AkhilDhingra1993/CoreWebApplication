@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
-namespace CoreWebApplication.Models
+namespace CoreWebApplication.ViewModels
 {
     public class UserCreateViewModel
     {
