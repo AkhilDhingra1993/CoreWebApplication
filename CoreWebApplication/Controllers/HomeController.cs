@@ -1,9 +1,11 @@
 ﻿using CoreWebApplication.Models;
 using CoreWebApplication.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreWebApplication.Controllers
 {
+    [Authorize]
     [Route("[controller]/[action]")]
     public class HomeController : Controller
     {
@@ -17,6 +19,7 @@ namespace CoreWebApplication.Controllers
         }
         [Route("~/Home")]
         [Route("~/")]
+        [AllowAnonymous]
         public ViewResult Index()
         {
             //return _orderRepository.GetOrder(1).PAYMENT_METHOD;
@@ -26,6 +29,7 @@ namespace CoreWebApplication.Controllers
         }
 
         [Route("{id?}")]
+        [AllowAnonymous]
         public ViewResult Details(long? id)
         {
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
