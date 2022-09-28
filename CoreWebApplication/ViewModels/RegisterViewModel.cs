@@ -16,6 +16,7 @@ namespace CoreWebApplication.ViewModels
         [DataType(DataType.Password)]
         [Display(Name ="Confirm Password")]
         [Compare("Password", ErrorMessage = "Password and confirm password does not match")]
-        public string ConfirmPassword { get; set; }        
+        public string ConfirmPassword { get; set; }
+        public string City { get; set; }
     }
 }
